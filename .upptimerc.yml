@@ -13,8 +13,10 @@ sites:
 
 status-website:
   cname: status.headways.ai
-  logoUrl: https://headways.ai/headways-logomark__dark.svg
   name: Headways Status
+  logoUrl: https://headways.ai/headways-logo__dark.svg
+  faviconSvg: https://headways.ai/headways-logomark__dark.svg
+  theme: light
   introTitle: "Headways system status"
   introMessage: Live availability and incident history for Headways' customer-facing services. For support, visit [headways.ai](https://headways.ai).
   navbar:
@@ -22,6 +24,105 @@ status-website:
       href: /
     - title: Headways
       href: https://headways.ai
+  customHeadHtml: >
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  css: |
+    /* ---- Headways brand fonts (self-hosted woff2 mirrored to this repo, served via jsDelivr CORS) ---- */
+    @font-face {
+      font-family: 'Denim';
+      src: url('https://cdn.jsdelivr.net/gh/headways-ai/status@main/assets/fonts/Denim-Medium.woff2') format('woff2');
+      font-weight: 400 700; font-style: normal; font-display: swap;
+    }
+    @font-face {
+      font-family: 'STK Bureau Serif';
+      src: url('https://cdn.jsdelivr.net/gh/headways-ai/status@main/assets/fonts/STKBureauSerif-Book.woff2') format('woff2');
+      font-weight: 400; font-style: normal; font-display: swap;
+    }
 
-# Notifications, scheduled maintenance, and assignees:
-# https://upptime.js.org/docs/configuration
+    /* ---- Palette mapped to Headways tokens (DESIGN.md) ---- */
+    :root {
+      --body-background-color: #F7F7F7;
+      --body-text-color: #1A2615;
+      --card-background-color: #FFFFFF;
+      --nav-background-color: #F9F7F5;
+      --nav-border-bottom-color: #E5E0D8;
+      --nav-current-border-bottom-color: #4A7E38;
+      --card-border-color: #E5E0D8;
+      --up-border-left-color: #B4FB6D;
+      --up-background-color: #FFFFFF;
+      --tag-color: #1A2615;
+      --tag-up-background-color: #B4FB6D;
+      --down-border-left-color: #E8502E;
+      --down-background-color: #FCE7E0;
+      --tag-down-background-color: #E8502E;
+      --degraded-border-left-color: #D98A14;
+      --tag-degraded-background-color: #D98A14;
+      --change-background-color: #E6F4D7;
+      --submit-button-background-color: #1A2615;
+      --submit-button-border-color: #1A2615;
+      --submit-button-color: #B4FB6D;
+      --error-button-background-color: #1A2615;
+      --error-button-border-color: #1A2615;
+      --error-button-color: #B4FB6D;
+    }
+
+    /* ---- Typography: editorial serif body, Denim display, JetBrains mono metrics ---- */
+    body {
+      font-family: 'STK Bureau Serif', Georgia, serif !important;
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
+    }
+    h1, h2, h3, h4, h5, nav, .logo, .live-status, button,
+    input, select, optgroup {
+      font-family: 'Denim', 'Helvetica Neue', Arial, sans-serif !important;
+    }
+    h1 { letter-spacing: -0.02em; font-weight: 600; }
+    h2, h3 { letter-spacing: -0.01em; font-weight: 600; }
+    p.lead {
+      font-family: 'STK Bureau Serif', Georgia, serif !important;
+      color: #2D4A26; line-height: 1.55;
+    }
+
+    /* ---- Monitor cards (article.up/.down/.degraded) ---- */
+    article {
+      background: #FFFFFF;
+      border: 1px solid #E5E0D8;
+      border-left-width: 3px;
+      border-radius: 16px !important;
+      box-shadow: 0 1px 3px rgba(26, 38, 21, 0.04);
+      transition: box-shadow .18s ease, transform .18s ease;
+    }
+    article.link:hover {
+      box-shadow: 0 4px 16px rgba(26, 38, 21, 0.06);
+      transform: translateY(-1px);
+    }
+
+    /* ---- Metric pills (uptime %, response time) ---- */
+    span.data {
+      font-family: 'JetBrains Mono', ui-monospace, monospace !important;
+      background: #E6F4D7;
+      color: #2D4A26;
+      border-radius: 6px;
+      padding: 2px 8px;
+      font-size: 0.8rem;
+    }
+
+    /* ---- Logo + nav ---- */
+    .logo img { height: 28px; width: auto; }
+    nav a { letter-spacing: 0.01em; }
+
+    /* ---- Buttons + subscribe form ---- */
+    button {
+      border-radius: 16px !important;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+    }
+    form.f input[type="email"], form.f input[type="text"] {
+      border: 1px solid #E5E0D8 !important;
+      border-radius: 8px !important;
+      background: #FFFFFF !important;
+    }
+    form.f input:focus { border-color: #1A2615 !important; outline: none; }
