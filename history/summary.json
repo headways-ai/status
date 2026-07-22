@@ -58,17 +58,19 @@
     "url": "https://api.headways.ai/health/ready",
     "icon": "https://icons.duckduckgo.com/ip3/api.headways.ai.ico",
     "slug": "api-database",
-    "status": "up",
+    "status": "down",
     "uptime": "100.00%",
-    "uptimeDay": "100.00%",
+    "uptimeDay": "99.99%",
     "uptimeWeek": "100.00%",
     "uptimeMonth": "100.00%",
     "uptimeYear": "100.00%",
-    "time": 109,
-    "timeDay": 233,
-    "timeWeek": 117,
-    "timeMonth": 109,
-    "timeYear": 109,
-    "dailyMinutesDown": {}
+    "time": 111,
+    "timeDay": 206,
+    "timeWeek": 125,
+    "timeMonth": 111,
+    "timeYear": 111,
+    "dailyMinutesDown": {
+      "2026-07-22": 0
+    }
   }
 ]
